@@ -14,8 +14,9 @@ class Tweet {
     
     var user : User? //Most tweets have user, but some of them might be not
     
-    // if the json fails to grab data from "text or "id_str", nil will be returned with No Valid Tweet, but if we get to the if statement and the "user" is not defined then, it will return a valid tweet but with nil value.
-    init?(json: [String: Any]){ //Because we used Any we should use as? String next line
+    // if the json fails to grab data from "text or "id_str" keys, nil will be returned (in the else statement) with No Valid Tweet, but if we get to the if statement and the "user" is not defined then, it will return a valid tweet but with nil value.
+    
+    init?(json: [String: Any]){ //failable initializer //Because we used Any we should use as? String next line
         if let text = json["text"] as? String,
             let id = json["id_str"] as? String {
             self.text = text

@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0183E0AB1E803F1800CEB3F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E0AA1E803F1800CEB3F0 /* AppDelegate.swift */; };
-		0183E0AD1E803F1800CEB3F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E0AC1E803F1800CEB3F0 /* ViewController.swift */; };
 		0183E0B01E803F1800CEB3F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0183E0AE1E803F1800CEB3F0 /* Main.storyboard */; };
 		0183E0B21E803F1800CEB3F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0183E0B11E803F1800CEB3F0 /* Assets.xcassets */; };
 		0183E0B51E803F1800CEB3F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0183E0B31E803F1800CEB3F0 /* LaunchScreen.storyboard */; };
 		0183E0BD1E8052AE00CEB3F0 /* tweet.json in Resources */ = {isa = PBXBuildFile; fileRef = 0183E0BC1E8052AE00CEB3F0 /* tweet.json */; };
 		0183E0BF1E8053DA00CEB3F0 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E0BE1E8053DA00CEB3F0 /* Tweet.swift */; };
 		0183E0C11E80541000CEB3F0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E0C01E80541000CEB3F0 /* User.swift */; };
+		0183E0C31E806D6D00CEB3F0 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E0C21E806D6D00CEB3F0 /* JSONParser.swift */; };
+		01D2023C1E807840004FAAC6 /* HomeTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2023B1E807840004FAAC6 /* HomeTimelineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0183E0A71E803F1800CEB3F0 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0183E0AA1E803F1800CEB3F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0183E0AC1E803F1800CEB3F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0183E0AF1E803F1800CEB3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0183E0B11E803F1800CEB3F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0183E0B41E803F1800CEB3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +28,8 @@
 		0183E0BC1E8052AE00CEB3F0 /* tweet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweet.json; sourceTree = "<group>"; };
 		0183E0BE1E8053DA00CEB3F0 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tweet.swift; path = ../Tweet.swift; sourceTree = "<group>"; };
 		0183E0C01E80541000CEB3F0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0183E0C21E806D6D00CEB3F0 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		01D2023B1E807840004FAAC6 /* HomeTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimelineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,9 @@
 			children = (
 				0183E0C01E80541000CEB3F0 /* User.swift */,
 				0183E0BE1E8053DA00CEB3F0 /* Tweet.swift */,
+				0183E0C21E806D6D00CEB3F0 /* JSONParser.swift */,
+				01D2023B1E807840004FAAC6 /* HomeTimelineViewController.swift */,
 				0183E0AA1E803F1800CEB3F0 /* AppDelegate.swift */,
-				0183E0AC1E803F1800CEB3F0 /* ViewController.swift */,
 				0183E0AE1E803F1800CEB3F0 /* Main.storyboard */,
 				0183E0B11E803F1800CEB3F0 /* Assets.xcassets */,
 				0183E0B31E803F1800CEB3F0 /* LaunchScreen.storyboard */,
@@ -148,9 +151,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0183E0C11E80541000CEB3F0 /* User.swift in Sources */,
+				0183E0C31E806D6D00CEB3F0 /* JSONParser.swift in Sources */,
 				0183E0BF1E8053DA00CEB3F0 /* Tweet.swift in Sources */,
-				0183E0AD1E803F1800CEB3F0 /* ViewController.swift in Sources */,
 				0183E0AB1E803F1800CEB3F0 /* AppDelegate.swift in Sources */,
+				01D2023C1E807840004FAAC6 /* HomeTimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +318,7 @@
 				0183E0BB1E803F1800CEB3F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
