@@ -21,7 +21,7 @@ class JSONParser {
             fatalError("Tweet.json does not exist in this bundle")
         }
         do {
-            let tweetJSONData = try Data(contentsOf: tweetJSONPath)
+            let tweetJSONData = try Data(contentsOf: tweetJSONPath) //casting contents from json path into tweetJSONData
             return tweetJSONData
         } catch {
             fatalError("Failed to create data from tweetJSONPath")
