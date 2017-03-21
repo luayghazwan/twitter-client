@@ -12,10 +12,14 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     //UIViewController is the home protocol.
     
     var dataSource = [Tweet]()
-        // creating an observer, anytime new tweets get assigned new data, our table will reload new data
+        { // creating an observer, anytime new tweets get assigned new data, our table will reload new data
+
+        didSet {
+            self.tableView.reloadData()
+        }
     }
-    
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad() //super represent the parent class, viewDidLoad() fire's off the original (parent) view
         
@@ -39,7 +43,9 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     func updateTimeline(){
         API.shared.getTweet { (tweets) in
-            self.dataSource = tweets ?? [] //repopulate my table view and reload all its data
+            OperationQueue.main.addOperation { // Creating an operation queue manually, we dont need to do it this way.
+                self.dataSource = tweets ?? [] //repopulate my table view and reload all its data
+            }
         }
     }
 
