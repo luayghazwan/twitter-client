@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeTimelineViewController: UIViewController, UITableViewDataSource{
+class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var dataSource = [Tweet]()
     
@@ -17,6 +17,8 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource{
         super.viewDidLoad()
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
         JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, tweets) in
             if(success){
                 guard let tweets = tweets else { fatalError("Tweets came back nil") }
@@ -27,6 +29,9 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource{
             }
         }
     }
+    
+    
+    
     //we dont need to call the functions, apple will call them
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -39,5 +44,14 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource{
         cell.detailTextLabel?.text = dataSource[indexPath.row].user?.name
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+
 }
+
+//This is the reversed Array but not sure how to run it
+//func reverseArray() -> [Tweet]{
+//    let reversedArray : [Tweet] = dataSource.reversed()
+//    return reversedArray
+//}
