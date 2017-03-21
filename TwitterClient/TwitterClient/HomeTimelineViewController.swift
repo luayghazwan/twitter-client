@@ -9,19 +9,23 @@
 import UIKit
 
 class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    //UIViewController is the home protocol.
     
     var dataSource = [Tweet]()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() //super represent the parent class, viewDidLoad() fire's off the original (parent) view
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        self.tableView.dataSource = self //an instance of HomeTimelineViewController, assigns self to be the dataSource for tableView
+        self.tableView.delegate = self //response to user's actions
         
-        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, tweets) in
+        
+        //the callback function from JSONParser file (line 31)
+        //JSONParser is a class and it has tweetsFrom method. It takes in two parameters () and the trailing closure { }
+        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, tweets) in //this is the
             if(success){
-                guard let tweets = tweets else { fatalError("Tweets came back nil") }
+                guard let tweets = tweets else { fatalError("Tweets came back nil") } //guard let is just like 'if let' but with if, we can have to conditions and work on a longer functionality.
                 for tweet in tweets {
                     dataSource.append(tweet)
                     print(tweet.text)
@@ -41,7 +45,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = dataSource[indexPath.row].text
-        cell.detailTextLabel?.text = dataSource[indexPath.row].user?.name
+        cell.detailTextLabel?.text = dataSource[indexPath.row].user?.name //'?' is optional chaining, if the user 'nil' it will fail
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
