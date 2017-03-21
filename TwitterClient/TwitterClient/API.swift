@@ -6,11 +6,6 @@
 //  Copyright © 2017 Luay Younus. All rights reserved.
 
 
-import Foundation
-import Accounts
-import Social
-
-
 // HTTP REQUEST
 //-------------
 // 200 OK
@@ -21,6 +16,9 @@ import Social
 // Social framework 'SLRequest' to http request from Twitter or other API …. Account has nothing to do with that
 // perform() is used once the reqest is done
 
+import Foundation
+import Accounts
+import Social
 
 typealias AccountCallback = (ACAccount?)->() //using an Alias name for the stuff after "="
 typealias UserCallback = (User?)->()
@@ -83,13 +81,18 @@ class API{
                         let user = User(json: userJSON)
                         callback(user)
                     }
-                    
-                default:
+                case 400...499:
                     print("Error: response came back with statusCode: \(response.statusCode)")
+                    callback(nil)
+                case 500...599:
+                    print("Error: Client Side Error. The response came back with statusCode: \(response.statusCode)")
+                    callback(nil)
+                default:
+                    print("Error: Server Side Error. The response came back with statusCode: \(response.statusCode)")
                     callback(nil)
                 }
             })
-            //callbacks, perform, completion are almost the same
+            //callbacks, perform, completion are the same concepts but different names
         }
         
     }
