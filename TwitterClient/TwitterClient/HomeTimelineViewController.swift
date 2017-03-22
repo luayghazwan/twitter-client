@@ -20,11 +20,18 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     }
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad() //super represent the parent class, viewDidLoad() fire's off the original (parent) view
         
+        self.navigationItem.title = "My Timeline"
+        
         self.tableView.dataSource = self //an instance of HomeTimelineViewController, assigns self to be the dataSource for tableView
         self.tableView.delegate = self //response to user's actions
+        
+        self.tableView.estimatedRowHeight = 50 //UI - related to the view of the table
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         updateTimeline()
         
@@ -39,12 +46,31 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 }
             }
         }
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "showDetailSegue" {
+            if let selectedIndex = self.tableView.indexPathForSelectedRow?.row { //index value represents the tweet clicked on
+                let selectedTweet = self.dataSource[selectedIndex]
+                
+                guard let destinationController = segue.destination as? TweetDetailViewController else {return}
+                
+                destinationController.tweet = selectedTweet //destinationController is the subclass that we add the tweet to
+
+            }
+        }
     }
     
     func updateTimeline(){
+        self.activityIndicator.startAnimating()
+        
         API.shared.getTweet { (tweets) in
             OperationQueue.main.addOperation { // Creating an operation queue manually, we dont need to do it this way.
                 self.dataSource = tweets ?? [] //repopulate my table view and reload all its data
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -56,6 +82,10 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //de-queue is to pop something off, remove it and show it on screen when scrolled
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        if let cell = cell as? TweetCall { //taking cell again, if we can cast it and assign it again to cell. It's not considered Mutating, crazy and fucked up!
+            cell.tweetText.text = dataSource[indexPath.row].text
+        }
         
         cell.textLabel?.text = dataSource[indexPath.row].text
         cell.detailTextLabel?.text = dataSource[indexPath.row].user?.name //'?' is optional chaining, if the user 'nil' it will fail

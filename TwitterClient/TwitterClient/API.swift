@@ -33,20 +33,22 @@ class API{
     //by default, closures are marked as escaping - the callback will escape out of the func to get data back... usually used with Asynchrnous calls
     private func login(callback: @escaping AccountCallback){ //it should be private for safety of login
         
+        //creating an instance
         let accountStore = ACAccountStore()
         
+        //'accountType' instance method because it's called on an instance
         let accountType = accountStore.accountType(withAccountTypeIdentifier:ACAccountTypeIdentifierTwitter) //(typing ACAcc will show us autocomplete for twitter) 
         
         accountStore.requestAccessToAccounts(with: accountType, options: nil) { (success, error) in
             
-            if let error = error{
+            if let error = error{ //if it's not nil, enter the if statement. error should be non-optional
                 print("Errorrr!: \(error.localizedDescription)")
                 callback(nil)
                 return
             }
             
             if success {
-                //first is to just use the first account the user enter
+                //first is to just get the first account from the users array coming from 'accounts' instance method
                 if let  account = accountStore.accounts(with: accountType).first as? ACAccount {
                     callback(account)
                 }
