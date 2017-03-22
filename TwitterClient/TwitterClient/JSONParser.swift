@@ -13,6 +13,7 @@ import Foundation
 
 //typealias - we can give a name to another type renaming a name (ex: typealias AdamInt Int)
 typealias JSONParserCallback = (Bool, [Tweet]?)->()
+typealias userParser = (Bool,[String: Any]?) ->()
 
 class JSONParser {
     
@@ -48,5 +49,18 @@ class JSONParser {
             print("Error Serializing JSON")
             callback(false, nil)
         }
+    }
+    
+    class func userJSON (data: Data) -> User? {
+        do {
+            if let userData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]  {
+                let user = User(json: userData)
+                return user
+            }
+        } catch {
+            print("Error Bringing the user's info")
+            return nil
+        }
+        return nil
     }
 }

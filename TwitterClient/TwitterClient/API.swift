@@ -8,7 +8,7 @@
 
 // HTTP REQUEST
 //-------------
-// 200 OK
+//200 OK
 //2xx worked
 //4xx client's fault (aka our app) - wrong url, bad auth, asking for resource that's not there
 //5xx Server Error - server issue, not client's.
@@ -77,10 +77,8 @@ class API{
                 
                 switch response.statusCode {
                 case 200...299:     //building the successful state .. parsing the data from JSONParser file.swift
-                    if let userJSON = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]{
-                        let user = User(json: userJSON)
-                        callback(user)
-                    }
+                    let user = JSONParser.userJSON(data: data)
+                    callback(user)
                 case 400...499:
                     print("Error: response came back with statusCode: \(response.statusCode)")
                     callback(nil)
