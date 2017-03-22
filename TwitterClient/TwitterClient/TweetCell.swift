@@ -10,7 +10,7 @@ import UIKit
 
 class TweetCell: UITableViewCell {
     
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var subtitle: UILabel!
-
+    @IBOutlet weak var cellTitle: UILabel!
+    
+    @IBOutlet weak var cellSubtitle: UILabel!
 }

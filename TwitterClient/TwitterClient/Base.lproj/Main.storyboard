@@ -50,26 +50,24 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellSubtitle" destination="Dhc-79-S9w" id="GZR-0U-tvR"/>
+                                            <outlet property="cellTitle" destination="W3h-gi-h2N" id="jjR-kA-n4i"/>
                                             <segue destination="Zba-QM-FsP" kind="show" identifier="showDetailSegue" id="5yc-Wz-CiB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="subtitle" destination="Dhc-79-S9w" id="zDq-zh-6gL"/>
-                                    <outlet property="title" destination="W3h-gi-h2N" id="hFt-ls-geJ"/>
-                                </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-Bv-Hpp">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-Bv-Hpp" customClass="Home">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yJM-Bv-Hpp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="KID-ul-nFN"/>
-                            <constraint firstItem="yJM-Bv-Hpp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZwK-Gr-Wd0"/>
-                            <constraint firstAttribute="trailing" secondItem="yJM-Bv-Hpp" secondAttribute="trailing" id="eOr-G2-eFQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yJM-Bv-Hpp" secondAttribute="bottom" id="mps-uJ-eLb"/>
+                            <constraint firstItem="yJM-Bv-Hpp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="251" id="KID-ul-nFN"/>
+                            <constraint firstItem="yJM-Bv-Hpp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="169" id="ZwK-Gr-Wd0"/>
+                            <constraint firstAttribute="trailing" secondItem="yJM-Bv-Hpp" secondAttribute="trailing" constant="169" id="eOr-G2-eFQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yJM-Bv-Hpp" secondAttribute="bottom" constant="315" id="mps-uJ-eLb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pxs-sb-Mgl"/>
