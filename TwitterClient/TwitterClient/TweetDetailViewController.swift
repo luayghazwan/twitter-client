@@ -12,6 +12,8 @@ class TweetDetailViewController: UIViewController {
     
     @IBOutlet weak var singleTweetText: UILabel!
     
+    @IBOutlet weak var retweetStatus: UILabel!
+    
     
     var tweet : Tweet! //Force unwrap is okay here. We dont want it to present if it deosnt have a tweet
 
@@ -22,5 +24,10 @@ class TweetDetailViewController: UIViewController {
         
         self.singleTweetText.text = tweet.text
         
+        if (!tweet.retweetStatus) {
+            self.retweetStatus.text = "Not Retweeted"
+        } else {
+            self.retweetStatus.text = "This is a retweeted Tweet"
+        }
     }
 }
