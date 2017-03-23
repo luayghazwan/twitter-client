@@ -68,6 +68,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+        
     func updateTimeline(){
         self.activityIndicator.startAnimating() //showing the Activity inicator loading icon
         
@@ -100,6 +101,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         
         return cell
     }
+    
     
     //just a function the prints the index clicked on
     //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

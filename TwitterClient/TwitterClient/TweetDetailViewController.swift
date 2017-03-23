@@ -24,7 +24,7 @@ class TweetDetailViewController: UIViewController {
         
         self.singleTweetText.text = tweet.text
         
-        if (!tweet.retweetStatus) {
+        if (tweet.retweetStatus == false) {
             self.retweetStatus.text = "Not Retweeted"
         } else {
             self.retweetStatus.text = "This is a retweeted Tweet"

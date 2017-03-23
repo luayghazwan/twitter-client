@@ -19,6 +19,8 @@
 		01D2023C1E807840004FAAC6 /* HomeTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D2023B1E807840004FAAC6 /* HomeTimelineViewController.swift */; };
 		01D6A4961E8318FB0062D3E8 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D6A4951E8318FB0062D3E8 /* TweetDetailViewController.swift */; };
 		01D6A4981E83208C0062D3E8 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D6A4971E83208C0062D3E8 /* TweetCell.swift */; };
+		01D6A49A1E8394A70062D3E8 /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D6A4991E8394A70062D3E8 /* UserAccountViewController.swift */; };
+		01D6A49C1E8399510062D3E8 /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D6A49B1E8399510062D3E8 /* UserButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		01D2023B1E807840004FAAC6 /* HomeTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimelineViewController.swift; sourceTree = "<group>"; };
 		01D6A4951E8318FB0062D3E8 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		01D6A4971E83208C0062D3E8 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		01D6A4991E8394A70062D3E8 /* UserAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
+		01D6A49B1E8399510062D3E8 /* UserButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			children = (
 				0183E0AE1E803F1800CEB3F0 /* Main.storyboard */,
 				01D6A4971E83208C0062D3E8 /* TweetCell.swift */,
+				01D6A49B1E8399510062D3E8 /* UserButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 		01D202401E80943E004FAAC6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01D6A4991E8394A70062D3E8 /* UserAccountViewController.swift */,
 				01D2023B1E807840004FAAC6 /* HomeTimelineViewController.swift */,
 				01D6A4951E8318FB0062D3E8 /* TweetDetailViewController.swift */,
 			);
@@ -191,6 +197,8 @@
 				011CBC7E1E81A00600F40516 /* API.swift in Sources */,
 				01D6A4961E8318FB0062D3E8 /* TweetDetailViewController.swift in Sources */,
 				01D2023C1E807840004FAAC6 /* HomeTimelineViewController.swift in Sources */,
+				01D6A49C1E8399510062D3E8 /* UserButton.swift in Sources */,
+				01D6A49A1E8394A70062D3E8 /* UserAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

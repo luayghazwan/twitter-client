@@ -129,6 +129,8 @@ class API{
 
         }
     }
+    
+    
     func getTweet (callback: @escaping TweetsCallback){
         if self.account == nil { // it means we didn't sing in/log in with user account
             login(callback: { (account) in // now we have to unwrap it as always
