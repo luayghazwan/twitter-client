@@ -60,7 +60,7 @@ class API{
         }
         
     }
-    private func getOAuth(callback: @escaping UserCallback){
+    func getOAuth(callback: @escaping UserCallback){
         let url = URL(string: "https://api.twitter.com/1.1/account/verify_credentials.json") //base url for twitter's API
         
         //Imports Social up (line 11) to access social and use 'SLRequest'
@@ -79,8 +79,13 @@ class API{
                 
                 switch response.statusCode {
                 case 200...299:     //building the successful state .. parsing the data from JSONParser file.swift
-                    let user = JSONParser.userJSON(data: data)
-                    callback(user)
+                    JSONParser.userFrom(data: data, callback: { (success, user) in
+                        if success {
+                            callback(user)
+                        } else {
+                            callback(nil)
+                        }
+                    })
                 case 400...499:
                     print("Error: response came back with statusCode: \(response.statusCode)")
                     callback(nil)

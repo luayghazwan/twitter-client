@@ -10,16 +10,28 @@ import UIKit
 
 class UserAccountViewController: UIViewController {
     
-//    var user : User!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        print(self.user.text.name ?? "Not logged In")
-//        
-//        self.singleTweetText.text = tweet.text
-
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var profileImg: UILabel!
+    @IBOutlet weak var userLocation: UILabel!
+    
+    
+    var user : User!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-//    }
-
-
+        userFrom()
+    }
+    
+    func userFrom() {
+        API.shared.getOAuth { (users) in
+            guard let theUser = users else {fatalError("Error grabing the user")}
+            OperationQueue.main.addOperation {
+                self.user = theUser
+                self.name.text = "Name \(self.user.name)"
+                self.profileImg.text = "Pic \(self.user.profileImageURL)"
+                self.userLocation.text = "Location \(self.user.location)"
+            }
+        }
+    }
 }
