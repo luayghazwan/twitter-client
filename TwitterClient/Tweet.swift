@@ -11,6 +11,7 @@ import Foundation
 class Tweet {
     let text : String
     let id : String
+    let retweetStatus : Bool
     
     var user : User? //Most tweets have user, but some of them might be not
     
@@ -18,9 +19,12 @@ class Tweet {
     
     init?(json: [String: Any]){ //failable initializer //Because we used Any we should use as? String next line
         if let text = json["text"] as? String,
-            let id = json["id_str"] as? String {
+            let id = json["id_str"] as? String,
+            let retweetStatus = json["retweeted"] as? Bool
+            {
             self.text = text
             self.id = id
+            self.retweetStatus = retweetStatus
             if let userDictionary = json["user"] as? [String:Any]{ //"user" is handling our tweet
                 self.user = User(json: userDictionary)
             }
