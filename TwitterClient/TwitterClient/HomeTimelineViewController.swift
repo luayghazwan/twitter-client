@@ -100,9 +100,11 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
+    
+    //just a function the prints the index clicked on
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(indexPath.row)
+//    }
 
 }
 
