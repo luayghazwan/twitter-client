@@ -56,16 +56,32 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "showDetailSegue" {
-            if let selectedIndex = self.tableView.indexPathForSelectedRow?.row { //index value represents the tweet clicked on
+        switch segue.identifier {
+        case "showDetailSegue"?:
+            if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedTweet = self.dataSource[selectedIndex]
                 
-                guard let destinationController = segue.destination as? TweetDetailViewController else {return}
+                guard let destinationController = segue.destination as? TweetDetailViewController else { return }
                 
-                destinationController.tweet = selectedTweet //destinationController is the subclass that we add the tweet to
-
+                destinationController.tweet = selectedTweet
+                
             }
+        case "userAccountSegue"?:
+            guard segue.destination is UserAccountViewController else { return }
+        default:
+            return
         }
+        
+//        if segue.identifier == "showDetailSegue" {
+//            if let selectedIndex = self.tableView.indexPathForSelectedRow?.row { //index value represents the tweet clicked on
+//                let selectedTweet = self.dataSource[selectedIndex]
+//                
+//                guard let destinationController = segue.destination as? TweetDetailViewController else {return}
+//                
+//                destinationController.tweet = selectedTweet //destinationController is the subclass that we add the tweet to
+//
+//            }
+//        }
     }
     
         
