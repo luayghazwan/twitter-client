@@ -14,6 +14,7 @@ class TweetDetailViewController: UIViewController {
     
     @IBOutlet weak var retweetStatus: UILabel!
     
+    @IBOutlet weak var profileImage: UIImageView!
     
     var tweet : Tweet! //Force unwrap is okay here. We dont want it to present if it deosnt have a tweet
 
@@ -21,6 +22,8 @@ class TweetDetailViewController: UIViewController {
         super.viewDidLoad()
 
         print(self.tweet.user?.name ?? "Unknown") //?? is the nil coalescing. default to nil
+        
+        self.profileImage.image = UIImagetoUIimageView()
         
         self.singleTweetText.text = tweet.text
         

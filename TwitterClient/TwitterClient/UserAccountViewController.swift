@@ -30,16 +30,21 @@ class UserAccountViewController: UIViewController {
         }
     }
 
-    func downloadProfileImage() {
+    func downloadProfileImage() -> UIImage {
         OperationQueue.main.addOperation {
             if let imageURLString = self.user?.profileImageURL {
                 let imageURL = URL(string: imageURLString)
                 if let profileImage = try? UIImage(data: NSData(contentsOf: imageURL!) as Data) {
-                    self.profileImageView.image = profileImage
+                    return self.profileImageView.image = profileImage
                 }
             }
         }
     }
+    func UIImagetoUIimageView() -> URL {
+        let imageView = UIImageView(profileImg)
+        let image = UIImage(named: downloadProfileImage)
+        imageView.image = image
+        return self.view.addSubview(imageView)
 }
 
 // 1. string -> URL
