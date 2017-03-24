@@ -68,24 +68,20 @@ class API{
             request.account = self.account
             request.perform(handler: {(data,response,error) in
             
+                // if error exists, NO GOOD
                 if let error = error {
                     print ("Error: \(error)")
                     callback(nil) //works with marking the function @escaping
                     return
                 }
-                
+                // i want this response to have a value!! Otherwise exit the function
                 guard let response = response else {callback(nil); return} // the ';' will treat it as two indiviual lines of code
                 guard let data = data else {callback(nil); return}
                 
                 switch response.statusCode {
                 case 200...299:     //building the successful state .. parsing the data from JSONParser file.swift
-                    JSONParser.userFrom(data: data, callback: { (success, user) in
-                        if success {
-                            callback(user)
-                        } else {
-                            callback(nil)
-                        }
-                    })
+                    let user = JSONParser.userFrom(data: data)
+                    callback(user)
                 case 400...499:
                     print("Error: response came back with statusCode: \(response.statusCode)")
                     callback(nil)
