@@ -84,6 +84,7 @@
 		01D2023E1E809422004FAAC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01D6A4971E83208C0062D3E8 /* TweetCell.swift */,
 				0183E0AE1E803F1800CEB3F0 /* Main.storyboard */,
 				0183E0B31E803F1800CEB3F0 /* LaunchScreen.storyboard */,
 			);
@@ -94,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				0183E0C21E806D6D00CEB3F0 /* JSONParser.swift */,
-				01D6A4971E83208C0062D3E8 /* TweetCell.swift */,
 				011CBC7D1E81A00600F40516 /* API.swift */,
 				0183E0BE1E8053DA00CEB3F0 /* Tweet.swift */,
 				0183E0C01E80541000CEB3F0 /* User.swift */,
