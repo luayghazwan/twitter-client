@@ -10,33 +10,37 @@
     </dependencies>
     <scenes>
         <!--User Account View Controller-->
-        <scene sceneID="T9o-U8-XGg">
+        <scene sceneID="MiT-kX-qsT">
             <objects>
-                <viewController id="guK-MK-8p3" customClass="UserAccountViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jp6-SU-JbR" customClass="UserAccountViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iWi-wm-7sV"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ncc-Km-1xf"/>
+                        <viewControllerLayoutGuide type="top" id="jdV-AW-vP1"/>
+                        <viewControllerLayoutGuide type="bottom" id="hxq-km-gBy"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e3e-s9-czF">
+                    <view key="view" contentMode="scaleToFill" id="fwk-PJ-1bc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBe-kA-dHo">
-                                <rect key="frame" x="16" y="179" width="100" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gZ-9r-wPt">
+                                <rect key="frame" x="120" y="169" width="190" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ej-GS-au5">
-                                <rect key="frame" x="17" y="127" width="45" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wW5-Ce-X4o">
+                                <rect key="frame" x="121" y="226" width="157" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEN-Ls-Coi">
-                                <rect key="frame" x="17" y="236" width="66" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w9V-EG-i9c">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tiu-Ki-t18">
+                                <rect key="frame" x="121" y="123" width="189" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -46,14 +50,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="location" destination="dEN-Ls-Coi" id="VSz-ps-XVI"/>
-                        <outlet property="name" destination="6ej-GS-au5" id="zmT-HG-dXa"/>
-                        <outlet property="profileImg" destination="vBe-kA-dHo" id="ElA-24-jAo"/>
+                        <outlet property="name" destination="Tiu-Ki-t18" id="MJE-dx-C9j"/>
+                        <outlet property="profileImageView" destination="w9V-EG-i9c" id="jvY-BY-Cwg"/>
+                        <outlet property="profileImg" destination="8gZ-9r-wPt" id="TU9-Ns-Vxa"/>
+                        <outlet property="userLocation" destination="wW5-Ce-X4o" id="MW5-qq-UkE"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qkB-AX-qTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfT-bv-VZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2205.5999999999999" y="-333.28335832083962"/>
+            <point key="canvasLocation" x="2036" y="-202.84857571214394"/>
         </scene>
         <!--Home Timeline View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -72,7 +77,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="W3h-gi-h2N" detailTextLabel="Dhc-79-S9w" style="IBUITableViewCellStyleSubtitle" id="8ST-fD-Svu" customClass="TweetCell" customModule="TwitterClient" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" textLabel="W3h-gi-h2N" detailTextLabel="Dhc-79-S9w" style="IBUITableViewCellStyleSubtitle" id="8ST-fD-Svu" customClass="TweetCell" customModule="TwitterClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ST-fD-Svu" id="3fg-MK-hJA">
@@ -98,7 +103,7 @@
                                         <connections>
                                             <outlet property="cellSubtitle" destination="Dhc-79-S9w" id="GZR-0U-tvR"/>
                                             <outlet property="cellTitle" destination="W3h-gi-h2N" id="jjR-kA-n4i"/>
-                                            <segue destination="Zba-QM-FsP" kind="show" identifier="showDetailSegue" id="5yc-Wz-CiB"/>
+                                            <segue destination="Zba-QM-FsP" kind="show" identifier="TweetDetailViewController" id="5yc-Wz-CiB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -117,16 +122,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pxs-sb-Mgl">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fH1-nT-4jw">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k9Q-59-D85">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Profile"/>
-                                <connections>
-                                    <segue destination="guK-MK-8p3" kind="show" identifier="userAccountSegue" id="tLr-37-e3Z"/>
-                                </connections>
-                            </button>
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="iyb-qo-OIy">
+                            <connections>
+                                <segue destination="Jp6-SU-JbR" kind="show" identifier="UserAccountViewController" id="bou-Oe-l3O"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

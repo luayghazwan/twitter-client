@@ -53,11 +53,11 @@ class JSONParser {
         }
     }
     
-    class func userFrom(data: Data, callback: JSONParserCallbackUsers) -> User? {
+    class func userFrom(data: Data) -> User? {
         do {
             if let userData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]  {
                 let user = User(json: userData)
-                callback(true, user)
+                return user
             }
         } catch {
             print("Error Bringing the user's info")

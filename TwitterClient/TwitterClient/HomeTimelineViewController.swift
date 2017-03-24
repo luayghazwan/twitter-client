@@ -1,4 +1,4 @@
-//
+    //
 //  HomeTimelineViewController.swift
 //  TwitterClient
 //
@@ -56,8 +56,8 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        switch segue.identifier {
-        case "showDetailSegue"?:
+        switch segue.identifier! {
+        case "TweetDetailViewController":
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedTweet = self.dataSource[selectedIndex]
                 
@@ -66,7 +66,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 destinationController.tweet = selectedTweet
                 
             }
-        case "userAccountSegue"?:
+        case "UserAccountViewController":
             guard segue.destination is UserAccountViewController else { return }
         default:
             return
@@ -87,7 +87,6 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         
     func updateTimeline(){
         self.activityIndicator.startAnimating() //showing the Activity inicator loading icon
-        
         API.shared.getTweet { (tweets) in
             OperationQueue.main.addOperation { // Creating an operation queue manually, we dont need to do it this way.
                 self.dataSource = tweets ?? [] //repopulate my table view and reload all its data
@@ -100,21 +99,17 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //de-queue is to pop something off, remove it and show it on screen when scrolled
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath)
         
         //taking cell again, if we can cast it and assign it again to cell. It's not considered Mutating.
         if let cell = cell as? TweetCell {
-            cell.cellSubtitle.text = dataSource[indexPath.row].text
+            cell.cellTitle.text = dataSource[indexPath.row].text
+            cell.cellSubtitle.text = dataSource[indexPath.row].user?.name
         }
-        
-        cell.textLabel?.text = dataSource[indexPath.row].text
-        
-        //'?' is optional chaining, if the user 'nil' it will fail
-        cell.detailTextLabel?.text = dataSource[indexPath.row].user?.name
-        
         return cell
     }
     
