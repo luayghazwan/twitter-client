@@ -97,10 +97,10 @@ class API{
         }
         
     }
-    private func updateTimeLine(callback: @escaping TweetsCallback){
-        let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
+    private func updateTimeLine(url: String, callback: @escaping TweetsCallback){
+//        let url = URL(string: "")
         
-        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil){
+        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: URL(string: url), parameters: nil){
             request.account = self.account
             request.perform(handler: { (data, response, error) in
                 if let error = error {
@@ -137,13 +137,27 @@ class API{
             login(callback: { (account) in // now we have to unwrap it as always
                 if let account = account {
                     self.account = account
-                    self.updateTimeLine(callback: { (tweets) in //line 140 is a shorter - more verbose way to do it
+//                    self.updateTimeLine(callback: { (tweets) in //line 140 is a shorter - more verbose way to do it
+//                        callback(tweets)
+//                    })
+                    self.updateTimeLine(url: "https://api.twitter.com/1.1/statuses/home_timeline.json", callback: { (tweets) in
                         callback(tweets)
                     })
                 }
             })
         } else {
-            self.updateTimeLine(callback: callback)
+            self.updateTimeLine(url: "", callback: { (tweets) in
+                callback(tweets)
+            })
+        }
+    }
+    
+    func getTweetsFor(_ user: String, callback: @escaping TweetsCallback) {
+        
+        let urlString = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=\(user)"
+        //? is the end of the url we are requesting
+        self.updateTimeLine(url: urlString) { (tweets) in
+            callback(tweets)
         }
     }
 }
