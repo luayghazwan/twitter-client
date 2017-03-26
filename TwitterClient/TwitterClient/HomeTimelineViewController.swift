@@ -36,6 +36,12 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.dataSource = self //an instance of HomeTimelineViewController, assigns self to be the dataSource for tableView
         self.tableView.delegate = self //response to user's actions
         
+        let tweetNib = UINib(nibName: "TweetNibCell", bundle: nil) //bundle is interchangable
+        
+        
+        //tell the table view to register nib identefier
+        self.tableView.register(tweetNib, forCellReuseIdentifier: TweetNibCell.identifier)
+        
         updateTimeline()
         
         
@@ -52,6 +58,8 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         }
     
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -103,21 +111,25 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //de-queue is to pop something off, remove it and show it on screen when scrolled
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetNibCell.identifier, for: indexPath) as! TweetNibCell
+        
+        let tweet = self.dataSource[indexPath.row]
+        
+        cell.tweet = tweet
         
         //taking cell again, if we can cast it and assign it again to cell. It's not considered Mutating.
-        if let cell = cell as? TweetCell {
-            cell.cellTitle.text = dataSource[indexPath.row].text
-            cell.cellSubtitle.text = dataSource[indexPath.row].user?.name
-        }
+//        if let cell = cell as? TweetCell {
+//            cell.cellTitle.text = dataSource[indexPath.row].text
+//            cell.cellSubtitle.text = dataSource[indexPath.row].user?.name
+//        }
         return cell
     }
     
     
-    //just a function the prints the index clicked on
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        print(indexPath.row)
-    //    }
+    //a function the takes us to the indexedPath clicked on, in this case the segue to new tweets UI
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            self.performSegue(withIdentifier: TweetDetailViewController.identifier, sender: nil)
+        }
 
 }
 
