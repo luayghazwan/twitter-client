@@ -23,6 +23,7 @@ class TweetNibCell: UITableViewCell {
             self.tweetLabel.text = tweet.text
             
             if let user = tweet.user {
+                //print(user.profileImageURL)
                 UIImage.fetchImageWith(user.profileImageURL) { (image) in
                     self.userImageView.image = image
                 }

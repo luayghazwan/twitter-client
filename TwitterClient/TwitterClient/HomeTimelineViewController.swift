@@ -65,7 +65,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         super.prepare(for: segue, sender: sender)
         
         switch segue.identifier! {
-        case "TweetDetailViewController":
+        case TweetDetailViewController.identifier:
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedTweet = self.dataSource[selectedIndex]
                 
@@ -74,7 +74,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 destinationController.tweet = selectedTweet
                 
             }
-        case "UserAccountViewController":
+        case UserAccountViewController.identifier:
             guard segue.destination is UserAccountViewController else { return }
         default:
             return

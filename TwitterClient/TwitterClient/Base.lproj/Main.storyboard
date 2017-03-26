@@ -153,23 +153,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Retweet Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZJ-Ma-fkc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Retweet Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZJ-Ma-fkc">
                                 <rect key="frame" x="16" y="263" width="116" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZzA-cv-8qG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="142"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="495-Cb-Cen">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.39370615644657392" blue="0.33042272886406554" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Os-rh-FN6">
                                 <rect key="frame" x="16" y="196" width="343" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -179,17 +169,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ZzA-cv-8qG" firstAttribute="top" secondItem="1jZ-we-R1v" secondAttribute="bottom" id="0WT-A8-RVn"/>
-                            <constraint firstItem="ZzA-cv-8qG" firstAttribute="leading" secondItem="ygR-P8-MJI" secondAttribute="leading" id="60B-MB-5Nv"/>
-                            <constraint firstItem="zZJ-Ma-fkc" firstAttribute="top" secondItem="ZzA-cv-8qG" secondAttribute="bottom" id="QHP-26-cGT"/>
-                            <constraint firstAttribute="trailing" secondItem="ZzA-cv-8qG" secondAttribute="trailing" id="qVL-T4-8vo"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="profileImage" destination="495-Cb-Cen" id="XF0-oW-Eq1"/>
                         <outlet property="retweetStatus" destination="zZJ-Ma-fkc" id="sAd-zI-dhd"/>
                         <outlet property="singleTweetText" destination="8Os-rh-FN6" id="NCh-U0-xN6"/>
                     </connections>
