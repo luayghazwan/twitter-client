@@ -35,7 +35,7 @@ extension UIImage {
 }
 
 
-//anything globally will now have an identifier, it inherits from HomeViewController, every view , every class and subclass 
+//anything globally will now have an identifier, it applys for HomeViewController, every view , every class and subclass 
 extension UIResponder {
     //static means it lives on the actual type and not the instance
     
