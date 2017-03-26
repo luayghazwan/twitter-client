@@ -106,7 +106,6 @@
                                         <connections>
                                             <outlet property="cellSubtitle" destination="Dhc-79-S9w" id="GZR-0U-tvR"/>
                                             <outlet property="cellTitle" destination="W3h-gi-h2N" id="jjR-kA-n4i"/>
-                                            <segue destination="Zba-QM-FsP" kind="show" identifier="TweetDetailViewController" id="5yc-Wz-CiB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -135,6 +134,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="yJM-Bv-Hpp" id="FDD-Tw-Oev"/>
                         <outlet property="tableView" destination="hOi-oj-AR2" id="2o7-P2-RQf"/>
+                        <segue destination="Zba-QM-FsP" kind="show" identifier="TweetDetailViewController" id="Kzz-eR-bt3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
