@@ -25,26 +25,26 @@ class UserAccountViewController: UIViewController {
                 self.user = theUser
                 self.name.text = "Name \(self.user.name)"
                 self.userLocation.text = "Location \(self.user.location)"
-                self.downloadProfileImage()
+//                self.downloadProfileImage()
             }
         }
     }
 
-    func downloadProfileImage() -> UIImage {
-        OperationQueue.main.addOperation {
-            if let imageURLString = self.user?.profileImageURL {
-                let imageURL = URL(string: imageURLString)
-                if let profileImage = try? UIImage(data: NSData(contentsOf: imageURL!) as Data) {
-                    return self.profileImageView.image = profileImage
-                }
-            }
-        }
-    }
-    func UIImagetoUIimageView() -> URL {
-        let imageView = UIImageView(profileImg)
-        let image = UIImage(named: downloadProfileImage)
-        imageView.image = image
-        return self.view.addSubview(imageView)
+//    func downloadProfileImage() -> UIImage {
+//        OperationQueue.main.addOperation {
+//            if let imageURLString = self.user?.profileImageURL {
+//                let imageURL = URL(string: imageURLString)
+//                if let profileImage = try? UIImage(data: NSData(contentsOf: imageURL!) as Data) {
+//                    return self.profileImageView.image = profileImage
+//                }
+//            }
+//        }
+//    }
+//    func UIImagetoUIimageView() -> URL {
+//        let imageView = UIImageView(prof)
+//        let image = UIImage(named: downloadProfileImage)
+//        imageView.image = image
+//        return self.view.addSubview(imageView)
 }
 
 // 1. string -> URL

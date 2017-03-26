@@ -20,10 +20,13 @@ class TweetDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // we can give this TweetDetailController an identifier because we have an extension with UIResponder
+//        TweetDetailViewController.identifier
 
         print(self.tweet.user?.name ?? "Unknown") //?? is the nil coalescing. default to nil
         
-        self.profileImage.image = UIImagetoUIimageView()
+//        self.profileImage.image = UIImagetoUIimageView()
         
         self.singleTweetText.text = tweet.text
         
