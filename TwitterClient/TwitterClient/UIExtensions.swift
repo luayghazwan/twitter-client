@@ -16,19 +16,24 @@ extension UIImage {
     class func fetchImageWith(_ urlString: String, callback: @escaping ImageCallback){
         OperationQueue().addOperation {
             // to fetch image we usually get the image as String, we convert it to URL, Then convert the URL to Data, after that render it on UI
+            
+            
             guard let url = URL(string: urlString) else {callback(nil);return}
             
             if let data = try? Data(contentsOf: url){
                 
-                guard let image = UIImage(data: data) else {  callback(nil); return } // we can ommit this else callback with the guard at the beginning since the closure in typealias returns an optional '?' so if the 'image' constant returns nil, it will be handled for us and passed in to the OperationQueue
+                guard let image = UIImage(data: data) else {  callback(nil); return }
+                
+                // we can ommit this else callback with the guard at the beginning since the closure in typealias returns an optional '?' so if the 'image' constant returns nil, it will be handled for us and passed in to the OperationQueue
                 
                 OperationQueue.main.addOperation {
                     callback(image)
                 }
-            }
+            } else {
             
             OperationQueue.main.addOperation { //handling edge cases in case we didnt get data back
                 callback(nil)
+                }
             }
         }
     }

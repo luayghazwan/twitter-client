@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RDR-Oe-Jv8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RDR-Oe-Jv8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -73,6 +73,40 @@
             </objects>
             <point key="canvasLocation" x="2036" y="-202.84857571214394"/>
         </scene>
+        <!--Feed Controller-->
+        <scene sceneID="zAC-4F-afc">
+            <objects>
+                <viewController id="4ap-zA-uee" customClass="FeedController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GI2-2r-3uC"/>
+                        <viewControllerLayoutGuide type="bottom" id="SDg-Ih-CmR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hgI-G9-z8k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-Uv-GhQ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4Ea-Uv-GhQ" secondAttribute="trailing" id="8Dc-SY-hEN"/>
+                            <constraint firstItem="4Ea-Uv-GhQ" firstAttribute="leading" secondItem="hgI-G9-z8k" secondAttribute="leading" id="ENu-lJ-66N"/>
+                            <constraint firstItem="4Ea-Uv-GhQ" firstAttribute="centerY" secondItem="hgI-G9-z8k" secondAttribute="centerY" id="Fhp-CL-ul2"/>
+                            <constraint firstItem="SDg-Ih-CmR" firstAttribute="top" secondItem="4Ea-Uv-GhQ" secondAttribute="bottom" id="aRF-Le-8Hu"/>
+                            <constraint firstItem="4Ea-Uv-GhQ" firstAttribute="centerX" secondItem="hgI-G9-z8k" secondAttribute="centerX" id="tgz-DB-0E4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="feedTable" destination="4Ea-Uv-GhQ" id="alB-iV-1Qt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mh7-R7-5VP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2976.8000000000002" y="-203.74812593703149"/>
+        </scene>
         <!--Home Timeline View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -97,18 +131,18 @@
                                         <rect key="frame" x="0.0" y="166" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ST-fD-Svu" id="3fg-MK-hJA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W3h-gi-h2N">
-                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dhc-79-S9w">
-                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -173,8 +207,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4i1-lQ-MEp">
+                                <rect key="frame" x="133" y="463" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View Feed"/>
+                                <connections>
+                                    <action selector="viewFeedButtonPressed:" destination="Zba-QM-FsP" eventType="touchUpInside" id="0sk-VU-jic"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Os-rh-FN6">
-                                <rect key="frame" x="16" y="196" width="343" height="80"/>
+                                <rect key="frame" x="16" y="293" width="343" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -188,6 +230,8 @@
                     <connections>
                         <outlet property="retweetStatus" destination="zZJ-Ma-fkc" id="sAd-zI-dhd"/>
                         <outlet property="singleTweetText" destination="8Os-rh-FN6" id="NCh-U0-xN6"/>
+                        <outlet property="viewFeedButton" destination="4i1-lQ-MEp" id="z56-t0-9Py"/>
+                        <segue destination="4ap-zA-uee" kind="show" identifier="FeedController" id="nYI-HV-kCh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPJ-uI-73W" userLabel="First Responder" sceneMemberID="firstResponder"/>

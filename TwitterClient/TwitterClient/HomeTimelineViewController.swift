@@ -80,16 +80,6 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
             return
         }
         
-//        if segue.identifier == "showDetailSegue" {
-//            if let selectedIndex = self.tableView.indexPathForSelectedRow?.row { //index value represents the tweet clicked on
-//                let selectedTweet = self.dataSource[selectedIndex]
-//                
-//                guard let destinationController = segue.destination as? TweetDetailViewController else {return}
-//                
-//                destinationController.tweet = selectedTweet //destinationController is the subclass that we add the tweet to
-//
-//            }
-//        }
     }
     
         
@@ -118,15 +108,15 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         cell.tweet = tweet
         
         //taking cell again, if we can cast it and assign it again to cell. It's not considered Mutating.
-//        if let cell = cell as? TweetCell {
-//            cell.cellTitle.text = dataSource[indexPath.row].text
-//            cell.cellSubtitle.text = dataSource[indexPath.row].user?.name
-//        }
+        //if let cell = cell as? TweetCell {
+        //cell.cellTitle.text = dataSource[indexPath.row].text
+        //cell.cellSubtitle.text = dataSource[indexPath.row].user?.name
+        //}
         return cell
     }
     
     
-    //a function the takes us to the indexedPath clicked on, in this case the segue to new tweets UI
+        //a function the takes us to the indexedPath clicked on, in this case the segue to new tweets UI
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             self.performSegue(withIdentifier: TweetDetailViewController.identifier, sender: nil)
         }
