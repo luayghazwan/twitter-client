@@ -13,13 +13,11 @@ class FeedController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var feedTable: UITableView!
     
     var screenName : String!
-    
     var tweetsArray = [Tweet]() {
         didSet{
             self.feedTable.reloadData()
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +31,7 @@ class FeedController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.feedTable.estimatedRowHeight = 50
         self.feedTable.rowHeight = UITableViewAutomaticDimension
         
-        
         updateFeedView()
-        
     }
     
     func updateFeedView(){
@@ -54,11 +50,9 @@ class FeedController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TweetNibCell.identifier, for: indexPath) as? TweetNibCell
-        
         let tweet = self.tweetsArray[indexPath.row]
         
         cell?.tweet = tweet
-        
         return cell!
     }
 

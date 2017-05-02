@@ -13,21 +13,16 @@ class Tweet {
     let id : String
     var isRetweeted = false
     
-    var user : User? //Most tweets have user, but some of them might be not
-    
-    // if the json fails to grab data from "text or "id_str" keys, nil will be returned (in the else statement) with No Valid Tweet, but if we get to the if statement and the "user" is not defined then, it will return a valid tweet but with nil value.
-    
-    init?(json: [String: Any]){ //failable initializer //Because we used Any we should use as? String next line
+    var user : User?
+    init?(json: [String: Any]){
         if let text = json["text"] as? String,
-            let id = json["id_str"] as? String
-        //let isRet = json["retweeted_status"] as?  --- DONT DO this, if its a nil, the initializer will directly go to the else statement
-            {
+            let id = json["id_str"] as? String {
             self.text = text
             self.id = id
             if let _ = json["retweeted_status"] as? [String: Any] {
                 isRetweeted = true
             }
-            if let userDictionary = json["user"] as? [String:Any]{ //"user" is handling our tweet
+            if let userDictionary = json["user"] as? [String:Any]{
                 self.user = User(json: userDictionary)
             }
         } else {

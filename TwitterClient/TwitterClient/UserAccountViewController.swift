@@ -40,14 +40,3 @@ class UserAccountViewController: UIViewController {
     }
 
 }
-
-//    func UIImagetoUIimageView() -> URL {
-//        let imageView = UIImageView(prof)
-//        let image = UIImage(named: downloadProfileImage)
-//        imageView.image = image
-//        return self.view.addSubview(imageView)
-
-// 1. string -> URL
-// 2. get data from url
-// 3. conver data to UIImage
-// 4. put image to imgaeView.image
