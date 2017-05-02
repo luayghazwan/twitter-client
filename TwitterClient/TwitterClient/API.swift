@@ -20,7 +20,7 @@ import Foundation
 import Accounts
 import Social
 
-typealias AccountCallback = (ACAccount?)->() //using an Alias name for the stuff after "="
+typealias AccountCallback = (ACAccount?)->()
 typealias UserCallback = (User?)->()
 typealias TweetsCallback = ([Tweet]?)->()
 
@@ -37,19 +37,20 @@ class API{
         let accountStore = ACAccountStore()
         
         //'accountType' instance method because it's called on an instance
-        let accountType = accountStore.accountType(withAccountTypeIdentifier:ACAccountTypeIdentifierTwitter) //(typing ACAcc will show us autocomplete for twitter) 
+        let accountType = accountStore.accountType(withAccountTypeIdentifier:ACAccountTypeIdentifierTwitter)
+        //(typing ACAcc will show us autocomplete for twitter)
         
         accountStore.requestAccessToAccounts(with: accountType, options: nil) { (success, error) in
             
-            if let error = error{ //if it's not nil, enter the if statement. error should be non-optional
+            if let error = error{
                 print("Errorrr!: \(error.localizedDescription)")
                 callback(nil)
                 return
             }
             
             if success {
-                //first is to just get the first account from the users array coming from 'accounts' instance method
-                if let  account = accountStore.accounts(with: accountType).first as? ACAccount {
+                
+                if let account = accountStore.accounts(with: accountType).first as? ACAccount {
                     callback(account)
                 }
                 
