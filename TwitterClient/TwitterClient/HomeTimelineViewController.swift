@@ -120,11 +120,4 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             self.performSegue(withIdentifier: TweetDetailViewController.identifier, sender: nil)
         }
-
 }
-
-//This is the reversed Array but not sure how to run it
-//func reverseArray() -> [Tweet]{
-//    let reversedArray : [Tweet] = dataSource.reversed()
-//    return reversedArray
-//}

@@ -16,7 +16,6 @@ class TweetDetailViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    
     @IBOutlet weak var viewFeedButton: UIButton!
     
     @IBAction func viewFeedButtonPressed(_ sender: UIButton) {
