@@ -9,10 +9,6 @@
 import UIKit
 
 class TweetCell: UITableViewCell {
-    
     @IBOutlet weak var cellTitle: UILabel!
-    
     @IBOutlet weak var cellSubtitle: UILabel!
-    
-    
 }

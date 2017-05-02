@@ -9,12 +9,9 @@
 import UIKit
 
 class TweetNibCell: UITableViewCell {
-    //we will programmatically design the UI for the cell instead of StoryBoard
     
     @IBOutlet weak var userImageView: UIImageView!
-    
     @IBOutlet weak var usernameLabel: UILabel!
-
     @IBOutlet weak var tweetLabel: UILabel!
     
     var tweet: Tweet! {
@@ -23,17 +20,10 @@ class TweetNibCell: UITableViewCell {
             self.tweetLabel.text = tweet.text
             
             if let user = tweet.user {
-//                print(user.profileImageURL)
                 UIImage.fetchImageWith(user.profileImageURL) { (image) in
                     self.userImageView.image = image
                 }
             }
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
 }
